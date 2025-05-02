@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./components/auth/layout";
 import AuthLogin from "./pages/auth/login";
@@ -33,7 +16,6 @@ import ShoppingAccount from "./pages/shopping-view/account";
 import CheckAuth from "./components/common/check-auth";
 import UnauthPage from "./pages/unauth-page";
 import SearchProducts from "./pages/shopping-view/search";
-// import About from "./pages/shopping-view/about";
 import About from "./pages/shopping-view/About";
 import Contact from "./pages/shopping-view/contact";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -107,71 +89,13 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} /> 
           <Route path="search" element={<SearchProducts />} />
-
-
-          <Route path="paypal-return" element={<PaypalReturnPage/>} />   // yo naya add gareko paypal ko lagi
-
-
-          <Route path="payment-success" element={<PaymentSuccessPage/>} />
-          
-
-
+          <Route path="paypal-return" element={<PaypalReturnPage />} />
+          <Route path="payment-success" element={<PaymentSuccessPage />} />
         </Route>
         <Route path="/unauth-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
-    // <div className="flex flex-col overflow-hidden bg-white">
-    //   <Routes>
-    //     {/*  Allow Unauthenticated Users to Access Auth Pages */}
-        
-    //     <Route path="/auth/*" element={<AuthLayout />}>
-    //       <Route path="login" element={<AuthLogin />} />
-    //       <Route path="register" element={<AuthRegister />} />
-    //     </Route>
- 
-    //     {/* Protect Admin Routes */}
-    //     <Route
-    //       path="/admin/*"
-    //       element={
-    //         <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-    //           <AdminLayout />
-    //         </CheckAuth>
-    //       }
-    //     >
-    //       <Route path="dashboard" element={<AdminDashboard />} />
-    //       <Route path="products" element={<AdminProducts />} />
-    //       <Route path="orders" element={<AdminOrders />} />
-    //       <Route path="features" element={<AdminFeatures />} />
-    //     </Route>
- 
-    //     {/*  Protect Shopping Routes */}
-    //     <Route
-    //       path="/shop/*"
-    //       element={
-    //         <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-    //           <ShoppingLayout />
-    //         </CheckAuth>
-    //       }
-    //     >
-    //       <Route path="home" element={<ShoppingHome />} />
-    //       <Route path="listing" element={<ShoppingListing />} />
-    //       <Route path="checkout" element={<ShoppingCheckout />} />
-    //       <Route path="account" element={<ShoppingAccount />} />
-    //<Route path="about" element={<About />} />
-    
-    //       <Route path="about" element={<About />} />
-    //       <Route path="search" element={<SearchProducts />} />
-    //       <Route path="contact" element={<Contact />} />         
-    //     </Route>
- 
-    //     {/*  Unauthorized Page */}
-    //     <Route path="/unauth-page" element={<UnauthPage />} />
- 
-    //     {/*  Catch-All Not Found */}
-    //     <Route path="*" element={<NotFound />} />
-    //   </Routes>
-    // </div>
   );
 }
  

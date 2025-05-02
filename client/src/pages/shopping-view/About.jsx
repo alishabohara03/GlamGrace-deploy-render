@@ -1,8 +1,7 @@
-
-
 import { useState } from 'react';
-import sariImage from '../../assets/panjabi.jpg'; // Updated image path
-import { Button } from '@/components/ui/button'; // Reusing your Button component
+import { Link } from 'react-router-dom';
+import sariImage from '../../assets/panjabi.jpg';
+import { Button } from '@/components/ui/button';
 
 function About() {
   return (
@@ -47,14 +46,14 @@ function About() {
 
             {/* Column 2 */}
             <div>
-              <p className="text-gray-600">Shop</p>
-              <p className="text-gray-600">About Us</p>
-              <p className="text-gray-600">Contact Us</p>
+              <Link to="/shop/home" className="block text-gray-600 hover:text-gray-900">Shop</Link>
+              <Link to="/shop/about" className="block text-gray-600 hover:text-gray-900">About Us</Link>
+              <Link to="/shop/contact" className="block text-gray-600 hover:text-gray-900">Contact Us</Link>
             </div>
 
             {/* Column 3 */}
             <div>
-              <p className="text-gray-600">Customer Care</p>
+              <Link to="/shop/account" className="block text-gray-600 hover:text-gray-900">Customer Care</Link>
               <p className="text-gray-600">Store Policy</p>
               <p className="text-gray-600">Payment Methods</p>
               <p className="text-gray-600">FAQ</p>
@@ -65,8 +64,8 @@ function About() {
           <div className="mt-8 text-center">
             <h5 className="text-lg font-semibold">Follow Us</h5>
             <div className="flex justify-center space-x-4 mt-2">
-              <p className="text-gray-600">Facebook</p>
-              <p className="text-gray-600">Instagram</p>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">Facebook</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">Instagram</a>
             </div>
           </div>
 
