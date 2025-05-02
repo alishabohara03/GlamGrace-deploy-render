@@ -17,7 +17,7 @@ export const addNewAddress = createAsyncThunk(
         return rejectWithValue("userId is missing in formData");
       }
       const response = await axios.post(
-        "http://localhost:5000/api/shop/address/add",
+        `${import.meta.env.VITE_API_URL}/api/shop/address/add`,
         formData,
         {
           headers: {
@@ -45,7 +45,7 @@ export const fetchAllAddresses = createAsyncThunk(
         return rejectWithValue("userId is missing");
       }
       const response = await axios.get(
-        `http://localhost:5000/api/shop/address/get/${userId}`,
+        `${import.meta.env.VITE_API_URL}/api/shop/address/get/${userId}`,
         {
           headers: {
             "Cache-Control": "no-cache",
@@ -70,7 +70,7 @@ export const editAddress = createAsyncThunk(
     try {
       console.log("editAddress: Sending request for userId:", userId, "addressId:", addressId);
       const response = await axios.put(
-        `http://localhost:5000/api/shop/address/update/${userId}/${addressId}`,
+        `${import.meta.env.VITE_API_URL}/api/shop/address/update/${userId}/${addressId}`,
         formData,
         {
           headers: {
@@ -97,7 +97,7 @@ export const deleteAddress = createAsyncThunk(
         return rejectWithValue("userId or addressId is missing");
       }
       const response = await axios.delete(
-        `http://localhost:5000/api/shop/address/delete/${userId}/${addressId}`,
+        `${import.meta.env.VITE_API_URL}/api/shop/address/delete/${userId}/${addressId}`,
         {
           headers: {
             "Cache-Control": "no-cache",

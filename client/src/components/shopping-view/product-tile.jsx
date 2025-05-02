@@ -49,7 +49,7 @@ function ShoppingProductTile({
             <span  className={`${
                 product?.salePrice > 0 ? "line-through" : ""
               } text-lg font-semibold text-primary`}>
-                 Rs. {product?.price}
+                 $. {product?.price}
             </span>
 
             {

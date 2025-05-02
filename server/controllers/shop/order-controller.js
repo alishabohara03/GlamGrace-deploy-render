@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+// const paypal = require("../../helpers/paypal");
 // const Order = require("../../models/Order");
 // const Cart = require("../../models/Cart");
 // const Product = require("../../models/Product");
@@ -23,11 +31,11 @@
 //     const create_payment_json = {
 //       intent: "sale",
 //       payer: {
-//         payment_method: "",
+//         payment_method: "paypal",
 //       },
 //       redirect_urls: {
-//         return_url: "",
-//         cancel_url: "",
+//         return_url: "http://localhost:5173/shop/paypal-return",
+//         cancel_url: "http://localhost:5173/shop/paypal-cancel",
 //       },
 //       transactions: [
 //         {
@@ -36,12 +44,12 @@
 //               name: item.title,
 //               sku: item.productId,
 //               price: item.price.toFixed(2),
-//               currency: "",
+//               currency: "USD",
 //               quantity: item.quantity,
 //             })),
 //           },
 //           amount: {
-//             currency: "",
+//             currency: "USD",
 //             total: totalAmount.toFixed(2),
 //           },
 //           description: "description",
@@ -55,7 +63,7 @@
 
 //         return res.status(500).json({
 //           success: false,
-//           message: "Error while payment",
+//           message: "Error while creating paypal payment",
 //         });
 //       } else {
 //         const newlyCreatedOrder = new Order({
@@ -99,7 +107,7 @@
 //   try {
 //     const { paymentId, payerId, orderId } = req.body;
 
-//     let order = await Order.findById(orderId);
+//     let order = await Order.findById(orderId);   
 
 //     if (!order) {
 //       return res.status(404).json({
@@ -214,6 +222,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const paypal = require("../../helpers/paypal");
 const Order = require("../../models/Order");
 const Cart = require("../../models/Cart");
@@ -242,8 +263,8 @@ const createOrder = async (req, res) => {
         payment_method: "paypal",
       },
       redirect_urls: {
-        return_url: "http://localhost:5173/shop/paypal-return",
-        cancel_url: "http://localhost:5173/shop/paypal-cancel",
+        return_url: `${process.env.CLIENT_BASE_URL}/shop/paypal-return`,
+        cancel_url: `${process.env.CLIENT_BASE_URL}/shop/paypal-cancel`,
       },
       transactions: [
         {
