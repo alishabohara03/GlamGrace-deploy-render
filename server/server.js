@@ -2,6 +2,8 @@
 
 
 
+
+
 // require('dotenv').config();
 // const express = require('express');
 // const mongoose = require('mongoose');
@@ -17,7 +19,7 @@
 // const shopOrderRouter = require("./routes/shop/order-routes");
 
 // mongoose
-//     .connect('mongodb+srv://bhumika1:MCMC2ug4JfN23ok9@cluster.gvyn5.mongodb.net/')
+//     .connect(process.env.MONGO_URL)
 //     .then(() => console.log('MongoDb connected'))
 //     .catch((error) => console.log(error));
 
@@ -26,7 +28,7 @@
 
 // app.use(
 //     cors({
-//         origin: "http://localhost:5173",
+//         origin: "process.env.CLIENT_BASE_URL",
 //         methods: ["GET", "POST", "DELETE", "PUT"],
 //         allowedHeaders: [
 //             "Content-Type",
@@ -55,18 +57,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -89,9 +79,10 @@ mongoose
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Fix CORS configuration
 app.use(
     cors({
-        origin: "process.env.CLIENT_BASE_URL",
+        origin: process.env.CLIENT_BASE_URL, // Correctly reference the env variable
         methods: ["GET", "POST", "DELETE", "PUT"],
         allowedHeaders: [
             "Content-Type",
@@ -116,7 +107,3 @@ app.use("/api/shop/address", shopAddressRouter);
 app.use("/api/shop/search", shopSearchRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
-
-
